@@ -94,6 +94,22 @@ selected_ds = st.sidebar.multiselect("Designation", ds_options, default="Select 
 if "Select All" not in selected_ds:
     filtered_df = filtered_df[filtered_df['DESIGNATION'].isin(selected_ds)]
 
+# Filter data by selected Day(s)
+if "Select All" not in selected_p:
+    filtered_df = filtered_df[filtered_df['Agent'].isin(selected_p)]
+
+# Filter by Process with Select All
+name_options = sorted(filtered_df['Agent'].unique())
+name_options.insert(0, "Select All")
+selected_name = st.sidebar.multiselect("Counselo Name", name_options, default="Select All")
+
+# Filter data by selected Day(s)
+if "Select All" not in selected_name:
+    filtered_df = filtered_df[filtered_df['DESIGNATION'].isin(selected_name)]
+
+
+
+
 # Check if the filtered data is empty
 if filtered_df.empty:
     st.warning("No data available for the selected filters.")
