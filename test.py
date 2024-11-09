@@ -101,11 +101,11 @@ if "Select All" not in selected_p:
 # Filter by Process with Select All
 name_options = sorted(filtered_df['Agent'].unique())
 name_options.insert(0, "Select All")
-selected_name = st.sidebar.multiselect("counsellor Name", name_options, default="Select All")
+selected_name = st.sidebar.multiselect("Counsellor Name", name_options, default="Select All")
 
 # Filter data by selected Day(s)
 if "Select All" not in selected_name:
-    filtered_df = filtered_df[filtered_df['DESIGNATION'].isin(selected_name)]
+    filtered_df = filtered_df[filtered_df['Agent'].isin(selected_name)]
 
 
 
