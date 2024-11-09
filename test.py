@@ -121,11 +121,6 @@ else:
     # Convert "in Call Duration" to timedelta for easy comparison
     filtered_df["In-Call Duration"] = pd.to_timedelta(filtered_df["In-Call Duration"])
     filtered_df["Average Call Handling Duration"] = pd.to_timedelta(filtered_df["Average Call Handling Duration"])
-
-    # KPIs
-    st.title("📊 Dashboard")
-    st.header("Key Performance Indicators")
-
     
     total_calls = filtered_df['Total Call Answered'].sum()
     avg_call_duration = filtered_df["In-Call Duration"].mean()
